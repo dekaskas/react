@@ -1,0 +1,16 @@
+<html>
+    <head></head>
+    <body>
+        <script src="https://unpkg.com/react/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/babel-standalone/babel.min.js"></script>
+        <script type="text/babel">
+            function Welcome(props) {
+                return <h1>Hello, {props.name}</h1>
+            }
+
+            const element = <Welcome name="Sara" />
+            ReactDOM.render(element, document.querySelector('body'))
+        </script>
+    </body>
+</html>

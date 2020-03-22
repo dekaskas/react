@@ -1,0 +1,40 @@
+<html>
+    <head></head>
+    <body>
+        <script src="https://unpkg.com/react/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/babel-standalone/babel.min.js"></script>
+        <script type="text/babel">
+            class NameForm extends React.Component {
+                constructor(props) {
+                    super(props)
+                    this.state = {value: ''}
+
+                    this.handleCahnge = this.handleCahnge.bind(this)
+                    this.handleSubmit = this.handleSubmit.bind(this)
+                }
+
+                handleCahnge(event) {
+                    this.setState({value:event.target.value})
+                }
+
+                handleSubmit(event) {
+                    alert('A name was submitted: ' + this.state.value )
+                    event.preventDefault()
+                }
+
+                render() {
+                    return (
+                        <form onSubmit={this.handleSubmit}>
+                            <label>Name:
+                                <input type="text" value={this.state.value} onChange={this.handleCahnge}/>
+                            </label>
+                            <input type="submit" value="Submit"/>
+                        </form>
+                    )
+                }
+            }
+            ReactDOM.render(<NameForm />, document.querySelector('body'))
+        </script>
+    </body>
+</html>

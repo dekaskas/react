@@ -1,0 +1,29 @@
+<html>
+    <head></head>
+    <body>
+        <script src="https://unpkg.com/react/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/babel-standalone/babel.min.js"></script>
+        <script type="text/babel">
+            class Toggle extends React.Component {
+                constructor(props) {
+                    super(props)
+                    this.state = {isToggleOn: true}
+                    this.handleClick = this.handleClick.bind(this)
+                }
+
+                handleClick() {
+                    this.setState(state => ({isToggleOn: !state.isToggleOn}))
+                }
+
+                render() {
+                    return (
+                        <button onClick={this.handleClick}>{this.state.isToggleOn ? 'ON' : 'OFF'}</button>
+                    )
+                }
+            }
+
+            ReactDOM.render(<Toggle/>, document.querySelector('body'))
+        </script>
+    </body>
+</html>
