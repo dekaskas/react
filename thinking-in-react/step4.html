@@ -32,10 +32,15 @@
             
 
             function ProductTable(props) {
+                const filterText = props.filterText
+                const inStockOnly = props.inStockOnly
                 const rows = []
                 let lastCategory
 
                 props.products.forEach((product) => {
+                    if (product.name.indexOf(filterText) == -1 || inStockOnly && !product.stocked)
+                        return
+
                     if (product.category != lastCategory) {
                         rows.push(
                             <ProductCategoryRow
@@ -44,6 +49,7 @@
                         )
                         lastCategory = product.category
                     }
+                    
                     rows.push(
                         <ProductRow
                             product={product}
